@@ -65,8 +65,8 @@
 							<p class="product-card__infolabel">Tax included</p>
 							<form class="product-card__form" action="#">
 								<div class="product-card__parameter">
-									<div class="product-card__label">Size</div>
-									<select class="product-size">
+									<label class="product-card__label" for="product-size">Size</label>
+									<select id="product-size" class="product-size">
 										<option value="xs">XS</option>
 										<option value="s">S</option>
 										<option value="m">M</option>
@@ -179,26 +179,20 @@
 							<a class="product-card__photo-big" href="#">
 								<img class="product-card__photo-big-picture" src="images/photo1.jpg" srcset="images/photo1_x2.jpg 2x" alt="">
 							</a>
-							<div class="accordion" aria-label="Product info">
-								<div class="accordion__item">
-									<h2 id="productInfo1">
-										<button aria-controls="productInfo1Body" class="accordion__item-title" >Sizing & Fit</button>
-									</h2>
-									<div class="accordion__item-body">Olga is 175cm, she is wearing a size S.</div>
-								</div>
-								<div class="accordion__item">
-									<h2 id="productInfo1">
-										<button aria-controls="productInfo2Body" class="accordion__item-title">Composition & Care</button>
-									</h2>
-									<div class="accordion__item-body" id="productInfoBody2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
-								</div>
-								<div class="accordion__item">
-									<h2>
-										<button type="button" aria-controls="productInfo3Body" class="accordion__item-title">Delivery & Returns</button>
-									</h2>
-									<div class="accordion__item-body" id="productInfo3Body" aria-labelledby="productInfo3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</div>
-								</div>
-							</div>
+							<ul class="accordion" aria-label="Product info">
+								<li class="accordion__item">
+									<button aria-controls="productInfo1" class="accordion__item-title">Sizing & Fit</button>
+									<div class="accordion__item-body" id="productInfo1">Olga is 175cm, she is wearing a size S.</div>
+								</li>
+								<li class="accordion__item">
+										<button aria-controls="productInfo2" class="accordion__item-title">Composition & Care</button>
+									<div class="accordion__item-body" id="productInfo2">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</div>
+								</li>
+								<li class="accordion__item">
+										<button type="button" aria-controls="productInfo3" class="accordion__item-title">Delivery & Returns</button>
+									<div class="accordion__item-body" id="productInfo3" aria-labelledby="productInfo3">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</div>
+								</li>
+							</ul>
 						</div>
 					</div>
 
