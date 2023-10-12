@@ -163,7 +163,7 @@
 									<span class="product-card__label">Quantity</span>
 									<div class="input-quantity">
 										<button class="input-quantity__btn" data-action="decrease" aria-label="Decrease quantity">&minus;</button>
-										<input type="number" class="input-quantity__field" id="productQuantity" name="product_quantity" value="1">
+										<input type="number" class="input-quantity__field" id="productQuantity" aria-label="Quantity" name="product_quantity" value="1">
 										<button class="input-quantity__btn" data-action="increase" aria-label="Increase quantity">&plus;</button>
 									</div>
 								</div>
@@ -370,7 +370,8 @@
 								<button class="btn btn_primary">Subscribe</button>
 								</div>
 								<div class="form__input-group">
-									<input class="checkbox" type="checkbox" name="agree" id="agree"> I agree to give you all my data
+									<input class="checkbox" type="checkbox" name="agree" id="agree">
+									<label for="agree">I agree to give you all my data</label>
 								</div>
 
 							</form>
