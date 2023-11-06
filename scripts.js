@@ -1,9 +1,11 @@
 window.addEventListener("DOMContentLoaded", () => {
   const inputsColor = document.querySelectorAll('input[name=product_color]');
   const formColorLabel = document.getElementById('productColorValue');
+  const priceText = document.getElementById("price");
   inputsColor.forEach((input) => {
     input.addEventListener('change', (e) => {
       formColorLabel.innerText = e.target.dataset.nameDisplay;
+      priceText.innerText = "EUR 100";
     });
   });
 
