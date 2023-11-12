@@ -1,11 +1,23 @@
 window.addEventListener("DOMContentLoaded", () => {
+  const addBtn = document.querySelector(".btn_hollow");
+  addBtn.addEventListener("click", () => {
+    addBtn.innerText = "Added";
+  })
+
   const inputsColor = document.querySelectorAll('input[name=product_color]');
   const formColorLabel = document.getElementById('productColorValue');
   const priceText = document.getElementById("price");
+  const prices = {
+    Black: "EUR 41",
+    White: "EUR 40",
+    Gray: "EUR 42",
+    "Purple latte": "EUR 43"
+  }
+
   inputsColor.forEach((input) => {
     input.addEventListener('change', (e) => {
       formColorLabel.innerText = e.target.dataset.nameDisplay;
-      priceText.innerText = "EUR 100";
+      priceText.innerText = prices[formColorLabel.innerText];
     });
   });
 
@@ -14,11 +26,13 @@ window.addEventListener("DOMContentLoaded", () => {
     const inputField = input.querySelector('.input-quantity__field');
     const inputBtnIncrease = input.querySelector('.input-quantity__btn[data-action=increase]');
     const inputBtnDecrease = input.querySelector('.input-quantity__btn[data-action=decrease]');
-    inputBtnIncrease.addEventListener('click', () => {
+    inputBtnIncrease.addEventListener('click', (e) => {
+      e.preventDefault();
       const initialValue = inputField.value * 1;
-      inputField.value = initialValue + 1; 
+      inputField.value = initialValue + 1;
     });
-    inputBtnDecrease.addEventListener('click', () => {
+    inputBtnDecrease.addEventListener('click', (e) => {
+      e.preventDefault();
       const initialValue = inputField.value * 1;
       if (initialValue > 1) inputField.value = initialValue - 1;
     });    
@@ -39,52 +53,43 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   const modalTarget = document.querySelectorAll('.modal-target');
+  let previousActiveElement;
+
   modalTarget.forEach((modalTarget)=> {
     modalTarget.addEventListener('click', ()=>{
+      previousActiveElement = document.activeElement;
       const modalWindow = document.querySelector('.modal');
-      showModal(modalWindow);
+      const closeBtn = modalWindow.querySelector("#modal-close");
+      showModal(modalWindow, closeBtn);
     });
   });
   const modalBackdrop = document.querySelectorAll('.modal-backdrop');
+  const mainEl = document.querySelector(".main-grid");
+  const modalCloseBtns = document.querySelectorAll(".modal-close");
   modalBackdrop.forEach((modalBackdrop)=> {
     modalBackdrop.addEventListener('click', (e) => {
-
       const modalWindow = e.target.closest('.modal');
-      modalWindow.classList.remove('show-modal');
+      hideModal(modalWindow);
+    });
+  });
+  modalCloseBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const modalWindow = e.target.closest('.modal');
+      hideModal(modalWindow);
     });
   });
 
-  const showModal = (modalWindow) => {
+
+  const showModal = (modalWindow, closeBtn) => {
+    mainEl.inert = true;
     modalWindow.classList.add('show-modal');
+    closeBtn.focus();
   }
 
-  const  focusableElements =
-      'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])';
-  const modal = document.querySelector('#chart-modal'); // select the modal by it's id
+  const hideModal = (modalWindow) => {
+    mainEl.inert = false;
+    modalWindow.classList.remove('show-modal');
+    previousActiveElement.focus();
+  }
 
-  const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
-  const focusableContent = modal.querySelectorAll(focusableElements);
-  const lastFocusableElement = focusableContent[focusableContent.length - 1]; // get last element to be focused inside modal
-
-  document.addEventListener('keydown', function(e) {
-    let isTabPressed = e.key === 'Tab';
-
-    if (!isTabPressed) {
-      return;
-    }
-
-    if (e.shiftKey) { // if shift key pressed for shift + tab combination
-      if (document.activeElement === firstFocusableElement) {
-        lastFocusableElement.focus(); // add focus for the last focusable element
-        e.preventDefault();
-      }
-    } else { // if tab key is pressed
-      if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
-        firstFocusableElement.focus(); // add focus for the first focusable element
-        e.preventDefault();
-      }
-    }
-  });
-
-  firstFocusableElement.focus();
 })

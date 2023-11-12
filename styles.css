@@ -235,10 +235,6 @@ fieldset legend {
   width: 100%;
 }
 
-.header__menu-main {
-  width: 100%;
-}
-
 .menu {
   display: flex;
   justify-content: space-between;
@@ -280,19 +276,19 @@ fieldset legend {
   }
 }
 
-@media (max-width: 768px) {
-  .header__menu-main {
-    display: none;
-  }
+/*@media (max-width: 768px) {*/
+/*  .header__menu-main {*/
+/*    display: none;*/
+/*  }*/
 
-  .header__menu-secondary {
-    display: none;
-  }
+/*  .header__menu-secondary {*/
+/*    display: none;*/
+/*  }*/
 
-  .header__container {
-    justify-content: center;
-  }
-}
+/*  .header__container {*/
+/*    justify-content: center;*/
+/*  }*/
+/*}*/
 
 .page-content {
   padding-top: 20px;
@@ -585,14 +581,14 @@ fieldset legend {
   margin-bottom: 50px;
 }
 
-.product-card__left {
+.product-card__main {
   width: 60%;
   padding-right: 32px;
   order: 1;
   margin-bottom: 50px;
 }
 
-.product-card__right {
+.product-card__secondary {
   width: 40%;
   padding-left: 32px;
   order: 2;
@@ -600,12 +596,12 @@ fieldset legend {
 }
 
 @media (max-width: 1200px) {
-  .product-card__left {
+  .product-card__main {
     width: 50%;
     padding-right: 20px;
   }
 
-  .product-card__right {
+  .product-card__secondary {
     width: 50%;
     padding-left: 20px;
   }
@@ -616,13 +612,13 @@ fieldset legend {
     flex-wrap: wrap;
   }
 
-  .product-card__left {
+  .product-card__main {
     width: 100%;
     padding-right: 0;
     order: 1;
   }
 
-  .product-card__right {
+  .product-card__secondary {
     width: 100%;
     padding-left: 0;
     order: 2;
@@ -771,6 +767,11 @@ fieldset legend {
 .size-guide__table td {
   border: 1px solid;
   padding: 10px;
+}
+
+.modal-heading{
+  display: flex;
+  justify-content: space-between;
 }
 
 
@@ -1003,15 +1004,6 @@ fieldset legend {
   position: relative;
 }
 
-.products-grid__item-photo {
-  display: block;
-  width: 100%;
-  position: relative;
-  padding-bottom: 148%;
-  margin-bottom: 20px;
-  overflow: hidden;
-}
-
 .products-grid__item-picture {
   position: absolute;
   left: 0;
@@ -1022,6 +1014,15 @@ fieldset legend {
   transition-timing-function: ease;
   transition-property: transform;
   transition-duration: 200ms;
+}
+
+.products-grid__item-photo {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-bottom: 148%;
+  margin-bottom: 20px;
+  overflow: hidden;
 }
 
 .products-grid__item-photo:hover .products-grid__item-picture {
@@ -1049,7 +1050,6 @@ fieldset legend {
 }
 
 .products-grid__item-colors-palette.colors-palette {
-  justify-content: center;
   margin-bottom: 8px;
 }
 
@@ -1063,25 +1063,52 @@ fieldset legend {
 
 .colors-palette {
   display: flex;
+  flex-direction: column;
   justify-content: flex-start;
-  align-items: center;
   flex-wrap: wrap;
   margin-left: -2px;
   margin-right: -2px;
 }
 
 .colors-palette__item {
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   padding: 2px;
   margin-left: 2px;
   margin-right: 2px;
 }
 
 .colors-palette__sample {
+  position: relative;
   display: block;
   width: 100%;
   height: 100%;
+}
+
+.colors-palette__sample::after{
+  position: absolute;
+  left: 25px;
+  top: -2px;
+}
+
+.colors-palette__sample-orange::after{
+  content: "Orange";
+}
+
+.colors-palette__sample-pink::after{
+  content: "Pink";
+}
+
+.colors-palette__sample-blue::after{
+  content: "Blue";
+}
+
+.colors-palette__sample-green::after{
+  content: "Green";
+}
+
+.colors-palette__sample-red::after{
+  content: "Red";
 }
 
 .product-tags {
@@ -1102,4 +1129,13 @@ fieldset legend {
   margin-left: 4px;
   margin-right: 4px;
   margin-bottom: 8px;
+}
+
+.big_link:after{
+  content: '';
+  position: absolute;
+  top: -10px;
+  bottom: -10px;
+  left: -10px;
+  right: -10px;
 }
