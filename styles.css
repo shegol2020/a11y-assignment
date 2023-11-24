@@ -1073,10 +1073,10 @@ fieldset legend {
 
 .info-container{
   display: flex;
+  flex-wrap: wrap;
 }
 
 .info{
-  width: 25%;
   padding: 25px;
   margin: 20px;
   border: 1px solid  var(--text-color-primary);
