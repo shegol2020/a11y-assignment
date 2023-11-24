@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Disabled buttons</title>
+		<link rel="icon" href="icon.svg" type="image/svg+xml">
+		<link href="styles.css" rel="stylesheet">
+	</head>
+	<body>
+<div class="container">
+<h1>Disabled buttons and screenreaders</h1>
+<div class="info-container">
+<div class="info">
+    <h2>Usual button</h2>
+    <button>Usual</button>
+    <ul>
+        <li><b>Tab</b> - yes</li>
+        <li><b>Voiceover:</b> usual, button</li>
+        <li><b>NVDA</b></li>
+    </ul>
+</div>
+<div class="info">
+    <h2>Disabled button</h2>
+    <button disabled>Disabled</button>
+    <ul>
+        <li><b>Tab</b> - no</li>
+        <li><b>Voiceover:</b> disabled, dimmed, button</li>
+        <li><b>NVDA</b></li>
+    </ul>
+</div>
+<div class="info">
+    <h2>Aria-disabled button</h2>
+    <button aria-disabled="true">Aria-disabled</button>
+    <ul>
+        <li><b>Tab</b> - yes</li>
+        <li><b>Voiceover:</b> aria-disabled, dimmed, button</li>
+        <li><b>NVDA</b></li>
+    </ul></div>
+<div class="info">
+    <h2>Tabindex -1 button</h2>
+    <button tabindex="-1">Tabindex -1</button>
+    <ul>
+    
+        <li><b>Tab</b> - no</li>
+        <li><b>Voiceover:</b> tabindex -1, button</li>
+        <li><b>NVDA</b></li>
+    </ul>
+</div>
+
+</div>
+
+</div>
+<script src="scripts.js"></script>
+</body>
+</html>
+
