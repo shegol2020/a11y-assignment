@@ -23,9 +23,9 @@
 }
 
 :root {
-  --text-color-primary: #697386;
+  --text-color-primary: #717b90;
   --text-color-light: #5e626b;
-  --link-color-primary: #6c717a;
+  --link-color-primary: #b4bac4;
   --border-color-primary: #1a1f29;
   --border-color-light: #cccccc;
   --brand-blue: #171c8f;
@@ -37,6 +37,7 @@
 
 a {
   text-decoration: none;
+  outline: none;
 }
 
 p {
@@ -47,8 +48,6 @@ p {
 ul,
 ol {
   list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 html,
@@ -64,25 +63,10 @@ body {
   background-color: #fff;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: normal;
-  margin: 0;
-  padding: 0;
-}
-
 input,
 textarea,
 button {
   font-family: "Avenir Next Rounded Std", sans-serif;
-  border: none;
-  background: none;
-  padding: 0;
-  margin: 0;
 }
 
 button {
@@ -112,24 +96,6 @@ fieldset legend {
   width: 1px;
   height: 1px;
   overflow: hidden;
-}
-
-.visible-hidden {
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
-.visible-hidden:focus {
-  clip: auto;
-  height: auto;
-  overflow: auto;
-  position: absolute;
-  width: auto;
-  background-color: white;
 }
 
 .container {
@@ -235,6 +201,10 @@ fieldset legend {
   width: 100%;
 }
 
+.header__menu-main {
+  width: 100%;
+}
+
 .menu {
   display: flex;
   justify-content: space-between;
@@ -276,19 +246,19 @@ fieldset legend {
   }
 }
 
-/*@media (max-width: 768px) {*/
-/*  .header__menu-main {*/
-/*    display: none;*/
-/*  }*/
+@media (max-width: 768px) {
+  .header__menu-main {
+    display: none;
+  }
 
-/*  .header__menu-secondary {*/
-/*    display: none;*/
-/*  }*/
+  .header__menu-secondary {
+    display: none;
+  }
 
-/*  .header__container {*/
-/*    justify-content: center;*/
-/*  }*/
-/*}*/
+  .header__container {
+    justify-content: center;
+  }
+}
 
 .page-content {
   padding-top: 20px;
@@ -579,16 +549,17 @@ fieldset legend {
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 50px;
+  outline: none;
 }
 
-.product-card__main {
+.product-card__left {
   width: 60%;
   padding-right: 32px;
   order: 1;
   margin-bottom: 50px;
 }
 
-.product-card__secondary {
+.product-card__right {
   width: 40%;
   padding-left: 32px;
   order: 2;
@@ -596,12 +567,12 @@ fieldset legend {
 }
 
 @media (max-width: 1200px) {
-  .product-card__main {
+  .product-card__left {
     width: 50%;
     padding-right: 20px;
   }
 
-  .product-card__secondary {
+  .product-card__right {
     width: 50%;
     padding-left: 20px;
   }
@@ -612,13 +583,13 @@ fieldset legend {
     flex-wrap: wrap;
   }
 
-  .product-card__main {
+  .product-card__left {
     width: 100%;
     padding-right: 0;
     order: 1;
   }
 
-  .product-card__secondary {
+  .product-card__right {
     width: 100%;
     padding-left: 0;
     order: 2;
@@ -721,7 +692,7 @@ fieldset legend {
 .size-guide-link {
   display: block;
   margin-top: 10px;
-  padding-bottom: 20px;
+  padding: 10px 0;
   text-decoration: underline;
 }
 
@@ -769,11 +740,6 @@ fieldset legend {
   padding: 10px;
 }
 
-.modal-heading{
-  display: flex;
-  justify-content: space-between;
-}
-
 
 
 .product-card__infolabel {
@@ -781,7 +747,7 @@ fieldset legend {
   line-height: 1.4;
   letter-spacing: 0.0125em;
   color: var(--text-color-light);
-  margin: 0 0 25px 0;
+  margin: 0 0 47px 0;
 }
 
 .input-group {
@@ -1004,6 +970,15 @@ fieldset legend {
   position: relative;
 }
 
+.products-grid__item-photo {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding-bottom: 148%;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
 .products-grid__item-picture {
   position: absolute;
   left: 0;
@@ -1014,15 +989,6 @@ fieldset legend {
   transition-timing-function: ease;
   transition-property: transform;
   transition-duration: 200ms;
-}
-
-.products-grid__item-photo {
-  display: block;
-  width: 100%;
-  position: relative;
-  padding-bottom: 148%;
-  margin-bottom: 20px;
-  overflow: hidden;
 }
 
 .products-grid__item-photo:hover .products-grid__item-picture {
@@ -1050,6 +1016,7 @@ fieldset legend {
 }
 
 .products-grid__item-colors-palette.colors-palette {
+  justify-content: center;
   margin-bottom: 8px;
 }
 
@@ -1063,52 +1030,25 @@ fieldset legend {
 
 .colors-palette {
   display: flex;
-  flex-direction: column;
   justify-content: flex-start;
+  align-items: center;
   flex-wrap: wrap;
   margin-left: -2px;
   margin-right: -2px;
 }
 
 .colors-palette__item {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
   padding: 2px;
   margin-left: 2px;
   margin-right: 2px;
 }
 
 .colors-palette__sample {
-  position: relative;
   display: block;
   width: 100%;
   height: 100%;
-}
-
-.colors-palette__sample::after{
-  position: absolute;
-  left: 25px;
-  top: -2px;
-}
-
-.colors-palette__sample-orange::after{
-  content: "Orange";
-}
-
-.colors-palette__sample-pink::after{
-  content: "Pink";
-}
-
-.colors-palette__sample-blue::after{
-  content: "Blue";
-}
-
-.colors-palette__sample-green::after{
-  content: "Green";
-}
-
-.colors-palette__sample-red::after{
-  content: "Red";
 }
 
 .product-tags {
@@ -1131,11 +1071,14 @@ fieldset legend {
   margin-bottom: 8px;
 }
 
-.big_link:after{
-  content: '';
-  position: absolute;
-  top: -10px;
-  bottom: -10px;
-  left: -10px;
-  right: -10px;
+.info-container{
+  display: flex;
+}
+
+.info{
+  width: 25%;
+  padding: 25px;
+  margin: 20px;
+  border: 1px solid  var(--text-color-primary);
+  border-radius: 25px;
 }
